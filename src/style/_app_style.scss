@@ -1,0 +1,39 @@
+$white: white;
+
+$light-weight: 300;
+$medium-weight: 500;
+$heavy-weight: 600;
+
+@import "app_style/foundation";
+
+/*Global Style Variables*/
+
+$brand-blue: rgb(55, 144, 210);
+$brand-green: #51D2B7;
+
+$light-gray:lightgray;
+$dark-gray:darkgray;
+
+/*
+Typography
+*/
+
+$body-font-size: 16px;
+$heading-font-size: 36px;
+$secondary-heading-font-size: 18px;
+$button-font-size: 20px;
+
+html, body{
+  font-family: 'Avenir W01';
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.overflowHidden{
+  overflow: hidden;
+}
+
+h3{
+  font-weight: 200;
+  font-size: 24px;
+}

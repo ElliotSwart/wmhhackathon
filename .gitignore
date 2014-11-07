@@ -1,0 +1,8 @@
+!.gitkeep
+node_modules/
+bower_components/
+.sass-cache/
+.idea
+build/
+bin/
+test-results.xml

@@ -1,0 +1,20 @@
+{
+  "name": "tripsketch-planner",
+  "version": "0.1.0",
+  "description": "The tripsketch travel planner",
+  "homepage": "https://bitbucket.org/3dermsystems/global-administration-client",
+  "private": true,
+  "devDependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-resource": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "angular-bootstrap": "~0.10.0",
+    "angular-ui-router": "~0.2",
+    "foundation": "5.4.6",
+    "angular-foundation": "0.4.0",
+    "components-font-awesome":"4.2.0",
+    "oauth-ng": "0.3.1"
+  }
+}
