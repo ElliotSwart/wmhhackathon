@@ -4,7 +4,8 @@ angular.module( 'app', [
     'ui.router',
     'mm.foundation',
     'app.home',
-    'appSDK'
+    'appSDK',
+    'oauth'
 ])
 .config( function myAppConfig ($locationProvider, $stateProvider, $urlRouterProvider ) {
     $urlRouterProvider.otherwise( '/start' );

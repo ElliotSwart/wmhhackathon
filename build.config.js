@@ -77,8 +77,7 @@ module.exports = {
       'bower_components/angular-foundation/mm-foundation-tpls.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-resource/angular-resource.js',
-      'bower_components/lodash/dist/lodash.js',
-      'bower_components/angular-google-maps/dist/angular-google-maps.js'
+      'bower_components/ngstorage/ngStorage.js'
     ],
     css: [
     ],
