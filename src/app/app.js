@@ -3,11 +3,15 @@ angular.module( 'app', [
     'templates-common',
     'ui.router',
     'mm.foundation',
-    'app.home',
+    'app.login',
+    'app.dashboard',
+    'app.give',
+    'app.receive',
+    'app.settings',
     'appSDK'
 ])
 .config( function myAppConfig ($locationProvider, $stateProvider, $urlRouterProvider ) {
-    $urlRouterProvider.otherwise( '/start' );
+    $urlRouterProvider.otherwise( '/login' );
     Parse.initialize("hSLPuKFB7TRIVRy8PceJfPTCFr5UYEhRJVZWtja5", "OAQx5ACN7JSbpdDDCu2OtNYluRgbJlJ5AvkE5nqY");
 
         window.fbAsyncInit = function() {
@@ -33,6 +37,6 @@ angular.module( 'app', [
         $scope.$state = $state;
 
         $scope.isHome = function($state){
-            return ($state.current.name == 'home');
+            return ($state.current.name == 'login');
         };
 }]);
