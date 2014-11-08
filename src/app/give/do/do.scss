@@ -1,3 +1,31 @@
 .do {
+  header {
+    margin-right: auto;
+    margin-left: auto;
+    width: 550px;
 
+    @media only screen and (max-width: 40em) {
+      width: 100%;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      //text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+      font-weight: 100;
+      text-transform: uppercase;
+
+      @media only screen and (max-width: 40em) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .button {
+    width: 100%;
+    display: block;
+    margin-top: 25px;
+    font-size: 24px;
+  }
 }

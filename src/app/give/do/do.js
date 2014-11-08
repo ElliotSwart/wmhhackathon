@@ -11,6 +11,6 @@ angular.module( 'app.give.do', [
 })
 .controller( 'DoCtrl', ['$scope', function DoCtrl( $scope) {
 
-
+     $scope.myAction = "Hang Out";
 
 }]);
