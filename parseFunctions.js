@@ -67,9 +67,9 @@ var viewActivities = function() {
 	var currentUser = Parse.User.current();
 
 	var circlesIn = currentUser.get("circlesIn"); //grabs the user's circles
-	var availActivities = circlesIn.get("activities"); //grabs the activities in the circle
+	var activities = circlesIn.get("activities"); //grabs the activities in the circle
 
-	var query = new Parse.Query(availActivities);
+	var query = new Parse.Query(activities);
 
 	// Figure out what the time is
 	var currentTime; //= ?;
