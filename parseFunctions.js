@@ -69,7 +69,7 @@ var viewActivities = function() {
 	var circlesIn = currentUser.get("circlesIn"); //grabs the user's circles
 	var availActivities = circlesIn.get("activities"); //grabs the activities in the circle
 
-	var query = new ParseQuery(availActivities);
+	var query = new Parse.Query(availActivities);
 
 	// Figure out what the time is
 	var currentTime; //= ?;
@@ -78,4 +78,38 @@ var viewActivities = function() {
 }
 
 
-var 
+var viewDoActivities = function() {
+
+	var activities = viewActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("do", true);
+
+}
+
+var viewTalkActivities = function() {
+
+	var activities = viewActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("do", false);
+
+}
+
+var viewStayInActivities = function() {
+
+	var activities = viewDoActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("stayIn", true);
+
+}
+
+var viewGoOutActivities = function() {
+
+	var activities = viewDoActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("stayIn", false);
+
+}
