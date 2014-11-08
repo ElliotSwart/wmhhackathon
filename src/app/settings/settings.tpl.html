@@ -1,3 +1,9 @@
 <div class="settings">
-<div ng-repeat="friend in friends"><img ng-src="http://graph.facebook.com/{{friend.id}}/picture"/>{{friend.name}}</div>
+    <h1>Groups</h1>
+    <div ng-repeat="circle in circles" ng-click="addFriendToCircle(circle)">
+        {{circle.attributes.name}}
+        <div ng-repeat="friend in circle.attributes.friends"><img ng-src="http://graph.facebook.com/{{friend.id}}/picture"/>{{friend.attributes.name}}</div>
+
+    </div>
+
 </div>

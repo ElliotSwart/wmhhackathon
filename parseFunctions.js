@@ -23,7 +23,7 @@ var createCircle = function(circleName) {
 }
 
 var addFriends = function(circle, userName) {
-	circle.addUnique("friends",userName);
+    circle.addUnique("friends",userName);
 	circle.save();
 }
 

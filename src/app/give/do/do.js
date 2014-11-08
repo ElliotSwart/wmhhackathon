@@ -5,11 +5,11 @@ angular.module( 'app.give.do', [
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'give.do', {
         url: '/do',
-        controller: 'DoCtrl',
+        controller: 'GiveDoCtrl',
         templateUrl:'give/do/do.tpl.html'
     });
 })
-.controller( 'DoCtrl', ['$scope', function DoCtrl( $scope) {
+.controller( 'GiveDoCtrl', ['$scope', function DoCtrl( $scope) {
 
      $scope.myAction = "Hang Out";
 
@@ -19,10 +19,11 @@ angular.module( 'app.give.do', [
 
 
         var createActivity = function(activityName, activityCircle, duration) {
+            var Activity = Parse.Object.extend("Activity");
             var activity = new Activity();
             activity.set("name",activityName);
             activity.set("circle",activityCircle);
-            activity.set("duration", endTime);
+            activity.set("duration", duration);
             activity.save(null, {
                 success: function(activity) {
                     //Execute things here
