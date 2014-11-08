@@ -5,12 +5,16 @@ angular.module( 'app.give.do', [
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'give.do', {
         url: '/do',
-        controller: 'DoCtrl',
+        controller: 'GiveDoCtrl',
         templateUrl:'give/do/do.tpl.html'
     });
 })
-.controller( 'DoCtrl', ['$scope', function DoCtrl( $scope) {
+.controller( 'GiveDoCtrl', ['$scope', function DoCtrl( $scope) {
 
      $scope.myAction = "Hang Out";
 
+     console.log("hi");
+     $scope.shouldBeShown = function() {
+         return ($scope.myAction == "Other");
+     };
 }]);

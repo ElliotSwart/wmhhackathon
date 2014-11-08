@@ -5,10 +5,10 @@ angular.module( 'app.receive.overview', [
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'receive.overview', {
         url: '/',
-        controller: 'OverviewCtrl',
+        controller: 'ReceiveOverviewCtrl',
         templateUrl:'receive/overview/overview.tpl.html'
     });
 })
-.controller( 'OverviewCtrl', ['$scope', function OverviewCtrl( $scope) {
+.controller( 'ReceiveOverviewCtrl', ['$scope', function OverviewCtrl( $scope) {
 
 }]);

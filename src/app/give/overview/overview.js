@@ -5,10 +5,10 @@ angular.module( 'app.give.overview', [
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'give.overview', {
         url: '/',
-        controller: 'OverviewCtrl',
+        controller: 'GiveOverviewCtrl',
         templateUrl:'give/overview/overview.tpl.html'
     });
 })
-.controller( 'OverviewCtrl', ['$scope', function OverviewCtrl( $scope) {
+.controller( 'GiveOverviewCtrl', ['$scope', function OverviewCtrl( $scope) {
 
 }]);
