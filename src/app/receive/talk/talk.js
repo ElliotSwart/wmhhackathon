@@ -5,11 +5,11 @@ angular.module( 'app.receive.talk', [
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'receive.talk', {
         url: '/talk',
-        controller: 'TalkCtrl',
+        controller: 'ReceiveTalkCtrl',
         templateUrl:'receive/talk/talk.tpl.html'
     });
 })
-.controller( 'TalkCtrl', ['$scope', function TalkCtrl( $scope) {
+.controller( 'ReceiveTalkCtrl', ['$scope', function TalkCtrl( $scope) {
 
 
 

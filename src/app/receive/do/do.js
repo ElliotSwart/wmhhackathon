@@ -5,11 +5,11 @@ angular.module( 'app.receive.do', [
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'receive.do', {
         url: '/do',
-        controller: 'DoCtrl',
+        controller: 'ReceiveDoCtrl',
         templateUrl:'receive/do/do.tpl.html'
     });
 })
-.controller( 'DoCtrl', ['$scope', function DoCtrl( $scope) {
+.controller( 'ReceiveDoCtrl', ['$scope', function DoCtrl( $scope) {
 
 
 
