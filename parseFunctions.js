@@ -59,7 +59,7 @@ var createActivity = function(activityName, activityCircle, startTime, endTime) 
 			alert('Failed to create new object, with error code: ' + error.message);
 		}
 	});
-}
+};
 
 var viewActivities = function(userName) {
 	var query = new ParseQuery(Activity);
