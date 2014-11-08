@@ -9,7 +9,7 @@ angular.module( 'app.login', [
         templateUrl:'login/login.tpl.html'
     });
 })
-.controller( 'LoginCtrl', ['$scope', '$state', function LoginCtrl( $scope, $state) {
+.controller( 'LoginCtrl', ['$scope', '$rootScope', '$state', function LoginCtrl( $scope, $rootScope, $state) {
         $scope.login = function(){
             Parse.FacebookUtils.logIn('user_friends', {
                 success: function(user) {
@@ -21,7 +21,9 @@ angular.module( 'app.login', [
                                 if (response && !response.error) {
                                     console.log(response);
                                     $scope.initializeUser(response);
-                                    $scope.loggedIn();
+
+                                    //Direct to manage circles if first time
+                                    $scope.manageCircles();
                                 }
                             }
                         );
@@ -42,7 +44,13 @@ angular.module( 'app.login', [
         };
 
         $scope.loggedIn = function(){
+            $rootScope.loggedIn = true;
             $state.go('dashboard');
+        };
+
+        $scope.manageCircles = function(){
+            $rootScope.loggedIn = true;
+            $state.go('settings');
         };
 
 

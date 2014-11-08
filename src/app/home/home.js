@@ -83,26 +83,5 @@ angular.module( 'app.home', [
             });*/
         };
 
-        $scope.getFriends = function(){
-            FB.api(
-                "/me/friends",
-                function (response) {
-                    if (response && !response.error) {
-                        console.log(response);
-                        /* handle the result */
-
-                        FB.api(
-                            "/" +  response.data[0].id + "/picture",
-                            function (response2) {
-                                if (response2 && !response2.error) {
-                                    /* handle the result */
-                                    console.log(response2);
-                                }
-                            }
-                        );
-                    }
-                }
-            );
-        };
 
 }]);

@@ -11,6 +11,24 @@ angular.module( 'app.settings', [
 })
 .controller( 'SettingsCtrl', ['$scope', function SettingsCtrl( $scope) {
 
+        $scope.getFriends = function(){
+            FB.api(
+                "/me/friends",
+                function (response) {
+                    if (response && !response.error) {
+                        console.log(response);
+                        $scope.friends = response.data;
+                        $scope.$digest();
+                    }
+                }
+            );
+        };
 
+        $scope.$on('$viewContentLoaded',
+            function(){
+                FB.getLoginStatus(function(response){
+                    $scope.getFriends();
+                });
 
+            });
 }]);

@@ -42,8 +42,15 @@ angular.module( 'app', [
             return ($state.current.name == 'login');
         };
 
-        $rootScope.logout = function(){
-            Parse.User.logout();
+        $rootScope.logout = function(logout){
+            if(logout){
+                Parse.User.logout();
+            }
+
             $state.go('login');
         };
+
+        if(!$rootScope.loggedIn){
+            $rootScope.logout();
+        }
 }]);
