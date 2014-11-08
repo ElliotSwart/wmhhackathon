@@ -18,7 +18,8 @@
       height: 150px;
       color: white;
       display: block;
-      margin: 0 auto;
+      margin-right: auto;
+      margin-left: auto;
 
       @media only screen and (max-width: 40em) {
         height: 100px;
@@ -31,6 +32,8 @@
       //text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
       font-weight: 100;
       text-transform: uppercase;
+      margin-bottom: 20px;
+      margin-top: 20px;
 
       @media only screen and (max-width: 40em) {
         font-size: 24px;
