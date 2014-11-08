@@ -12,13 +12,25 @@ angular.module( 'app.home', [
 .controller( 'HomeCtrl', ['$scope', function HomeCtrl( $scope) {
 
         $scope.login = function(){
-            Parse.FacebookUtils.logIn(null, {
+            Parse.FacebookUtils.logIn('user_friends', {
                 success: function(user) {
                     if (!user.existed()) {
                         alert("User signed up and logged in through Facebook!");
+
+                        FB.api(
+                            "/me",
+                            function (response) {
+                                if (response && !response.error) {
+                                    console.log(response);
+                                    user.set("name", response.firstName);
+                                }
+                            }
+                        );
                     } else {
                         alert("User logged in through Facebook!");
                     }
+
+
                 },
                 error: function(user, error) {
                     alert("User cancelled the Facebook login or did not fully authorize.");
@@ -68,6 +80,28 @@ angular.module( 'app.home', [
                     alert("Error: " + error.code + " " + error.message);
                 }
             });*/
+        };
+
+        $scope.getFriends = function(){
+            FB.api(
+                "/me/friends",
+                function (response) {
+                    if (response && !response.error) {
+                        console.log(response);
+                        /* handle the result */
+
+                        FB.api(
+                            "/" +  response.data[0].id + "/picture",
+                            function (response2) {
+                                if (response2 && !response2.error) {
+                                    /* handle the result */
+                                    console.log(response2);
+                                }
+                            }
+                        );
+                    }
+                }
+            );
         };
 
 }]);
