@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "FriendsWithCookies": {
+            "applicationId": "hSLPuKFB7TRIVRy8PceJfPTCFr5UYEhRJVZWtja5", 
+            "masterKey": "v7YpYya0pTJ64lN6qet6zYgyQ22jEc0nqaOrICtC"
+        }, 
+        "_default": {
+            "link": "FriendsWithCookies"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.1"
+    }
+}
