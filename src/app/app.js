@@ -11,26 +11,28 @@ angular.module( 'app', [
     'appSDK'
 ])
 .config( function myAppConfig ($locationProvider, $stateProvider, $urlRouterProvider ) {
-    $urlRouterProvider.otherwise( '/login' );
+
     Parse.initialize("hSLPuKFB7TRIVRy8PceJfPTCFr5UYEhRJVZWtja5", "OAQx5ACN7JSbpdDDCu2OtNYluRgbJlJ5AvkE5nqY");
 
-        window.fbAsyncInit = function() {
-            Parse.FacebookUtils.init({ // this line replaces FB.init({
-                appId      : '749996925050142', // Facebook App ID
-                cookie     : true, // enable cookies to allow Parse to access the session
-                xfbml      : true,
-                version    : 'v1.0'
-            });
-            // Run code after the Facebook SDK is loaded.
-        };
+    window.fbAsyncInit = function() {
+        Parse.FacebookUtils.init({ // this line replaces FB.init({
+            appId      : '749996925050142', // Facebook App ID
+            cookie     : true, // enable cookies to allow Parse to access the session
+            xfbml      : true,
+            version    : 'v1.0'
+        });
+        // Run code after the Facebook SDK is loaded.
+    };
 
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/all.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    $urlRouterProvider.otherwise( '/login' );
   //  $locationProvider.html5Mode(true);
 })
 .controller( 'AppCtrl', ['$scope', '$rootScope', '$state', function AppCtrl( $scope, $rootScope, $state) {
@@ -38,5 +40,10 @@ angular.module( 'app', [
 
         $scope.isHome = function($state){
             return ($state.current.name == 'login');
+        };
+
+        $rootScope.logout = function(){
+            Parse.User.logout();
+            $state.go('login');
         };
 }]);

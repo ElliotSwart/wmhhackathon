@@ -23,6 +23,7 @@ angular.module( 'app.home', [
                                 if (response && !response.error) {
                                     console.log(response);
                                     user.set("name", response.firstName);
+
                                 }
                             }
                         );
