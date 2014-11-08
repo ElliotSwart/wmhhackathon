@@ -46,14 +46,14 @@ angular.module( 'app.home', [
         };
 
         $scope.getScores = function(){
-
-            Parse.Cloud.run('hello', {}, {
+            Parse.Cloud.run('sendActivityMessage', {giver: 'xt0tt2WeGa', reciever: 'LOkbyg2fzm', activity:'04FwRaGmGV'}, {
                 success: function(result) {
                 },
                 error: function(error) {
                 }
             });
 
+            /*
             var GameScore = Parse.Object.extend("GameScore");
             var query = new Parse.Query(GameScore);
             query.equalTo("playerName", "Sean Plott");
@@ -67,7 +67,7 @@ angular.module( 'app.home', [
                 error: function(error) {
                     alert("Error: " + error.code + " " + error.message);
                 }
-            });
+            });*/
         };
 
 }]);
