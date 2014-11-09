@@ -3,6 +3,7 @@ angular.module( 'app.give', [
     'app.give.overview',
     'app.give.talk',
     'app.give.do',
+    'app.give.feed',
     'appSDK'
 ])
 .config(function config( $stateProvider ) {
