@@ -1,6 +1,35 @@
 <div class="talk">
-    <header>
-        <h1>You have options</h1>
+    <div class="row">
+        <h2>I want to <span class="purple-accent">talk...</span></h2>
 
-    </header>
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myTalk">
+                <option value="Casual">Casually</option>
+                <option value="Heart-to-Heart">Heart-to-Heart</option>
+            </select>
+        </div>
+
+        <h2>with some of <span class="purple-accent">my...</span></h2>
+
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myCircle">
+                <option value="Friends">Friends</option>
+                <option value="School">School</option>
+            </select>
+        </div>
+
+        <h2>since I'm free <span class="purple-accent">for...</span></h2>
+
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myWindow">
+                <option value="1 hour">1 hour</option>
+                <option value="2 hours">2 hours</option>
+                <option value="3 hours">3 hours</option>
+                <option value="4 hours">4 hours</option>
+                <option value="All day">All day</option>
+            </select>
+        </div>
+    </div>
+
+    <a class="button tiny radius">SUBMIT</a>
 </div>

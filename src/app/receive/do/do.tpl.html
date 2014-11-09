@@ -1,6 +1,43 @@
 <div class="do">
-    <header>
-        <h1>You have options</h1>
+    <div class="row">
+        <h2>I'm up <span class="purple-accent">for...</span></h2>
 
-    </header>
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myAction">
+                <option value="Hanging Out">Hanging out</option>
+                <option value="Staying In">Staying in</option>
+            </select>
+        </div>
+
+        <div class="large-12 columns">
+            <select ng-model="actionExample" ng-options="value for value in actionExamples">
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>with some of <span class="purple-accent">my...</span></h2>
+
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myCircle">
+                <option value="Friends">Friends</option>
+                <option value="School">School</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <h2>since I'm free <span class="purple-accent">for...</span></h2>
+
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myWindow">
+                <option value="1 hour">1 hour</option>
+                <option value="2 hours">2 hours</option>
+                <option value="3 hours">3 hours</option>
+                <option value="4 hours">4 hours</option>
+                <option value="All day">All day</option>
+            </select>
+        </div>
+    </div>
+
+    <a class="button tiny radius" ng-click="create()">SUBMIT</a>
 </div>

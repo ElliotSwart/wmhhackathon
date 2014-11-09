@@ -11,6 +11,10 @@ angular.module( 'app.receive.talk', [
 })
 .controller( 'ReceiveTalkCtrl', ['$scope', function TalkCtrl( $scope) {
 
+    $scope.myTalk = "Casual";
 
+    $scope.myCircle = "Friends";
+
+    $scope.myWindow = "1 hour";
 
 }]);
