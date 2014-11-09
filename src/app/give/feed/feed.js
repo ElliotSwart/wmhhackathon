@@ -15,4 +15,55 @@ angular.module( 'app.give.feed', [
 })
 .controller( 'GiveFeedCtrl', ['$scope', 'geolocation', function GiveCtrl( $scope, geolocation) {
 
-}]);
+        $scope.getActivities = function(){
+
+            //Get circles
+            var Group = Parse.Object.extend("Group");
+            var query = new Parse.Query(Group);
+            query.equalTo("friends", Parse.User.current());
+            query.find({
+                success: function(groups) {
+                    console.log(groups);
+                    $scope.groups = groups;
+
+                    var Activity = Parse.Object.extend("Activity");
+                    var activityQuery = new Parse.Query(Activity);
+
+                    activityQuery.containedIn("group",groups);
+                    activityQuery.equalTo("requested", true);
+                    activityQuery.equalTo("completed", false);
+                    var d = new Date();
+                    activityQuery.greaterThan("expirationDate", d);
+
+                    activityQuery.find({success: function(activities) {
+                        console.log('activities');
+                        console.log(activities);
+                        $scope.activities = activities;
+                        $scope.$digest();
+                    }});
+                },
+                error: function(error1, error2){
+                    console.log(error1);
+                    console.log(error2);
+                }
+            });
+            /*
+
+             var user = Parse.User.current();
+
+             var circlesIn = user.get("circlesIn"); //grabs the user's circles
+
+             var query = new Parse.Query(availActivities);
+
+             // Figure out what the time is
+             var currentTime; //= ?;
+             query.lessThan("endTime", currentTime)*/
+        };
+
+        $scope.$on('$viewContentLoaded',
+            function(){
+                $scope.getActivities();
+            });
+
+
+    }]);

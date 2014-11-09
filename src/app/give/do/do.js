@@ -66,11 +66,16 @@ angular.module( 'app.give.do', [
             else {
                 activityName = $scope.actionExample;
             }
+
+            var d = new Date();
+            var time = (Number($scope.myWindow) * 60 * 1000);
+            var expirationDate = new Date(d.getTime() + (time));
+            activity.set("expirationDate", expirationDate);
             activity.set("mode", "do");
-            activity.set("completed", "false");
+            activity.set("completed", false);
             activity.set("description",activityName);
             activity.set("group",$scope.myGroup);
-            activity.set("duration", Number($scope.myWindow));
+
             activity.set("creatingUser", Parse.User.current());
 
             activity.set("receiverHappinessBefore", $rootScope.happiness);

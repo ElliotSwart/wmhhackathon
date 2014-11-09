@@ -30,9 +30,14 @@ angular.module( 'app.give.talk', [
         activity.set("type",type);
         activity.set("mode", "talk");
 
-        activity.set("completed", "false");
+        activity.set("completed", false);
         activity.set("group",$scope.myGroup);
-        activity.set("duration", Number($scope.myWindow));
+
+        var d = new Date();
+        var time = (Number($scope.myWindow) * 60 * 1000);
+        var expirationDate = new Date(d.getTime() + (time));
+        activity.set("expirationDate", expirationDate);
+
         activity.set("creatingUser", Parse.User.current());
 
         activity.set("receiverHappinessBefore", $rootScope.happiness);

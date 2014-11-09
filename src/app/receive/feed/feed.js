@@ -31,6 +31,12 @@ angular.module( 'app.receive.feed', [
 
                     activityQuery.containedIn("group",
                         groups);
+                    activityQuery.equalTo("requested", false);
+                    activityQuery.equalTo("completed", false);
+                    activityQuery.equalTo("mode", $stateParams.mode);
+                    activityQuery.equalTo("type", $stateParams.type);
+                    var d = new Date();
+                    activityQuery.greaterThan("expirationDate", d);
                     activityQuery.find({success: function(activities) {
                         console.log('activities');
                         console.log(activities);
