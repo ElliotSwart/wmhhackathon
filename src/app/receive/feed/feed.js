@@ -25,10 +25,11 @@ angular.module( 'app.receive.feed', [
                 success: function(groups) {
                     console.log(groups);
                     $scope.groups = groups;
-                    $scope.myGroup = groups[0];
                     $scope.$digest();
                 }
             });
+
+            /*
 
             var user = Parse.User.current();
 
@@ -38,7 +39,7 @@ angular.module( 'app.receive.feed', [
 
             // Figure out what the time is
             var currentTime; //= ?;
-            query.lessThan("endTime", currentTime)
+            query.lessThan("endTime", currentTime)*/
         };
 
 }]);
