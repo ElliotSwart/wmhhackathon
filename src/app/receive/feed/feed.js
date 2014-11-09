@@ -67,7 +67,7 @@ angular.module( 'app.receive.feed', [
 
         $scope.acceptActivity = function(activity){
             activity.set("acceptingUser", Parse.User.current());
-            //activity.set("completed", true);
+            activity.set("completed", true);
             activity.set("receiverHappinessBefore", $rootScope.happiness);
             activity.save(null, {success:function(){
                 console.log(activity);
@@ -77,7 +77,7 @@ angular.module( 'app.receive.feed', [
                     error: function(error) {
                     }
                 });
-               // $state.go('activities');
+                $state.go('activities');
             }});
         };
 
