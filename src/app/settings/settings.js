@@ -1,6 +1,8 @@
 angular.module( 'app.settings', [
     'ui.router',
-    'appSDK'
+    'appSDK',
+    'app.settings.main',
+    'app.settings.group'
 ])
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'settings', {

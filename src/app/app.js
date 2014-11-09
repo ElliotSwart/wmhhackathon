@@ -8,6 +8,8 @@ angular.module( 'app', [
     'app.give',
     'app.receive',
     'app.settings',
+    'app.about',
+    'app.activities',
     'appSDK'
 ])
 .config( function myAppConfig ($locationProvider, $stateProvider, $urlRouterProvider ) {

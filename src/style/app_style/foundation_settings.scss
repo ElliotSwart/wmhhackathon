@@ -114,7 +114,7 @@ $font-weight-bold: 600 !default;
 // $oil         : #333333;
 // $jet         : #222222;
  $black       : #262C3C;
-
+$purple: rgb(202, 187, 224);
 // We use these as default colors throughout
  $primary-color: #E0603D;
 // $secondary-color: #e7e7e7;
@@ -447,7 +447,7 @@ $font-weight-bold: 600 !default;
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
- $button-bg-color: rgba(206,199,236,1);
+ $button-bg-color: $purple;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -802,7 +802,7 @@ $font-weight-bold: 600 !default;
 
 // $include-html-off-canvas-classes: $include-html-classes;
 
- $tabbar-bg: rgb(193,191,234);
+ $tabbar-bg: $purple;
 // $tabbar-height: rem-calc(45);
 // $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
@@ -810,8 +810,8 @@ $font-weight-bold: 600 !default;
 // $tabbar-middle-padding: 0 rem-calc(10);
 
 // Off Canvas Divider Styles
-// $tabbar-right-section-border: solid 1px scale-color($tabbar-bg, $lightness: 13%);
-// $tabbar-left-section-border: solid 1px scale-color($tabbar-bg, $lightness: -50%);
+ $tabbar-right-section-border: none;
+ $tabbar-left-section-border: none;
 
 // Off Canvas Tab Bar Headers
 // $tabbar-header-color: $white;
@@ -826,20 +826,20 @@ $font-weight-bold: 600 !default;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
- $off-canvas-label-color: rgb(193,191,234);
+ //$off-canvas-label-color: $purple;
 // $off-canvas-label-text-transform: uppercase;
 // $off-canvas-label-font-size: rem-calc(12);
 // $off-canvas-label-font-weight: $font-weight-bold;
-// $off-canvas-label-bg: $tuatara;
- $off-canvas-label-border-top: none;
-// $off-canvas-label-border-bottom: none;
+ //$off-canvas-label-bg: transparent;
+ $off-canvas-label-border-top: solid 1px rgba(0,0,0,.2);
+ $off-canvas-label-border-bottom: solid 1px rgba(0,0,0,.2);
 // $off-canvas-label-margin:0;
 // $off-canvas-link-padding: rem-calc(10, 15);
-// $off-canvas-link-color: rgba($white, 0.7);
-// $off-canvas-link-border-bottom: 1px solid scale-color($off-canvas-bg, $lightness: -25%);
-// $off-canvas-back-bg: $tuatara;
-// $off-canvas-back-border-top: $off-canvas-label-border-top;
-// $off-canvas-back-border-bottom: $off-canvas-label-border-bottom;
+ $off-canvas-link-color: $purple;
+ $off-canvas-link-border-bottom: solid 1px rgba(0,0,0,.1);
+ $off-canvas-back-bg: rgba(0,0,0,0);
+ $off-canvas-back-border-top: $off-canvas-label-border-top;
+ $off-canvas-back-border-bottom: $off-canvas-label-border-bottom;
 // $off-canvas-back-hover-bg: scale-color($off-canvas-back-bg, $lightness: -30%);
 // $off-canvas-back-hover-border-top: 1px solid scale-color($off-canvas-label-bg, $lightness: 14%);
 // $off-canvas-back-hover-border-bottom: none;
