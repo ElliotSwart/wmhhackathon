@@ -69,7 +69,7 @@ angular.module( 'app.receive.feed', [
             if ($window.confirm("Would you like to start this activity?") ) {
                 activity.set("acceptingUser", Parse.User.current());
                 activity.set("completed", true);
-                activity.set("receiverHappinessBefore", $rootScope.happiness);
+                activity.set("acceptorHappinessBefore", $rootScope.happiness);
                 activity.save(null, {success: function () {
                     console.log(activity);
                     Parse.Cloud.run('sendActivityMessage', {activityId: activity.id}, {

@@ -14,13 +14,16 @@
 
     <h2>History</h2>
     <ul>
-        <li>
+        <li ng-repeat="activity in activityHistory">
             <div class="border-widget activities-widget row collapse">
                 <div class="text small-12 columns">
-                    Hang out at a party with Elliot.<br>
-                    <span class="secondary radius label">Mood After</span><rating value="rate" max="5" on-leave="overStar = null" class="rating"></rating>
+                    {{activity | actionFilter}} with {{findName(activity)}}.<br>
+                    <span class="secondary radius label">Mood After</span><rating value="activity.afterMood" max="5" on-leave="setRating(activity)" class="rating"></rating>
                     <br>
-                    <span class="secondary radius label">Mood Before</span><rating value="rate" max="5" on-leave="overStar = null" class="rating"></rating>
+                    <div ng-show="calibrateMoods(activity)">
+                        <span class="secondary radius label">Mood Before</span><rating value="activity.beforeMood" readonly="true" max="5" on-leave="overStar = null" class="rating"></rating>
+                    </div>
+
 
                     <!--{{activity.attributes.creatingUser.attributes.name}} wants to
                     {{activity | actionFilter}}<br>

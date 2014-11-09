@@ -1,10 +1,10 @@
 <div class="group">
     <h2>{{group.attributes.name}}</h2>
     <div class="row collapse">
-        <div class="small-10 columns">
+        <div class="small-9 columns">
             <input type="text" ng-model="selectedFriend" placeholder="Add A Friend" typeahead="friend as friend.name for friend in availableFriends | filter:{name:$viewValue}" typeahead-template-url="settings/group/friendtemplate.tpl.html" class="form-control friend-picker">
         </div>
-        <div class="small-2 columns">
+        <div class="small-3 columns">
             <a class="button postfix" ng-click="addFriend(selectedFriend.id)">Add</a>
         </div>
     </div>

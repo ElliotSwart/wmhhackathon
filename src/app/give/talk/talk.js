@@ -40,7 +40,7 @@ angular.module( 'app.give.talk', [
 
         activity.set("creatingUser", Parse.User.current());
 
-        activity.set("giverHappinessBefore", $rootScope.happiness);
+        activity.set("creatorHappinessBefore", $rootScope.happiness);
 
         activity.save(null, {
             success: function(activity) {

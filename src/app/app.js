@@ -38,7 +38,7 @@ angular.module( 'app', [
     $urlRouterProvider.otherwise( '/login' );
   //  $locationProvider.html5Mode(true);
 })
-.controller( 'AppCtrl', ['$scope', '$rootScope', '$state', function AppCtrl( $scope, $rootScope, $state) {
+.controller( 'AppCtrl', ['$scope', '$rootScope', '$state', 'geolocation', function AppCtrl( $scope, $rootScope, $state, geolocation) {
         $scope.$state = $state;
         $rootScope.happiness = 3;
 
@@ -86,5 +86,7 @@ angular.module( 'app', [
             return Math.round( 0.621371*d * 10 ) / 10;
         };
 
-
+        geolocation.getLocation().then(function(data){
+            $rootScope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
+        });
 }]);

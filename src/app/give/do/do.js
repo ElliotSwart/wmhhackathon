@@ -40,15 +40,14 @@ angular.module( 'app.give.do', [
      };
 
     $scope.create = function() {
-        geolocation.getLocation().then(function(data){
             var Activity = Parse.Object.extend("Activity");
             var activity = new Activity();
-            console.log(data);
-            $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
-            console.log($scope.coords);
+            if($rootScope.coords){
+                var point = new Parse.GeoPoint($rootScope.coords.lat, $rootScope.coords.long);
+                activity.set("location", point);
+                console.log($rootScope.coords);
+            }
 
-            var point = new Parse.GeoPoint(data.coords.latitude, data.coords.longitude);
-            activity.set("location", point);
 
             var type = "";
             var activityName = "";
@@ -78,7 +77,7 @@ angular.module( 'app.give.do', [
 
             activity.set("creatingUser", Parse.User.current());
 
-            activity.set("giverHappinessBefore", $rootScope.happiness);
+            activity.set("creatorHappinessBefore", $rootScope.happiness);
 
             activity.save(null, {
                 success: function(activity) {
@@ -87,7 +86,6 @@ angular.module( 'app.give.do', [
                 error: function(circle, error) {
                 }
             });
-        });
     };
 
     $scope.getGroups = function(){

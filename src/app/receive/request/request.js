@@ -30,34 +30,23 @@ angular.module( 'app.receive.request', [
         activity.set("completed", false);
         activity.set("group",$scope.myGroup);
         activity.set("creatingUser", Parse.User.current());
-        activity.set("receiverHappinessBefore", $rootScope.happiness);
+        activity.set("creatorHappinessBefore", $rootScope.happiness);
 
         if($stateParams.mode == "do"){
-            geolocation.getLocation().then(function(data) {
-                console.log(data);
-                $scope.coords = {lat: data.coords.latitude, long: data.coords.longitude};
-                console.log($scope.coords);
-
-                var point = new Parse.GeoPoint(data.coords.latitude, data.coords.longitude);
+            if($rootScope.coords){
+                var point = new Parse.GeoPoint($rootScope.coords.lat, $rootScope.coords.long);
                 activity.set("location", point);
-
-                activity.save(null, {
-                    success: function(activity) {
-                        $state.go("activities");
-                    },
-                    error: function(circle, error) {
-                    }
-                });
-            });
-        }else{
-            activity.save(null, {
-                success: function(activity) {
-                    $state.go("activities");
-                },
-                error: function(circle, error) {
-                }
-            });
+                console.log($rootScope.coords);
+            }
         }
+
+        activity.save(null, {
+            success: function(activity) {
+                $state.go("activities");
+            },
+            error: function(circle, error) {
+            }
+        });
 
     };
 
