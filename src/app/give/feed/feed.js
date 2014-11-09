@@ -82,11 +82,9 @@ angular.module( 'app.give.feed', [
         $scope.$on('$viewContentLoaded',
             function(){
                 $scope.getActivities();
+
+
             });
 
-
-        $scope.calculateDistance = function(location, reference){
-
-        }
 
     }]);
