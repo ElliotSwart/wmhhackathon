@@ -11,8 +11,8 @@
                     {{activity.attributes.creatingUser.attributes.name}} wants to
                     {{activity | actionFilter}}<br>
                     This offer's good through <strong>{{ activity.attributes.expirationDate | date : 'h:s a'}}</strong>.<br>
-                    <span class="mileage">
-                         Mileage:
+                    <span class="mileage" ng-show="activity.attributes.location">
+                         Mileage: {{calculateDistance(activity.attributes.location, location)}} mi away
                     </span>
                 </div>
             </div>

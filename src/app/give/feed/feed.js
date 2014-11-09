@@ -79,10 +79,30 @@ angular.module( 'app.give.feed', [
             }
         };
 
+        $scope.loadLocation = function(){
+            geolocation.getLocation().then(function(data) {
+                $scope.location = {lat: data.coords.latitude, long: data.coords.longitude};
+            });
+        };
+
+        $scope.calculateDistance = function(location, reference){
+            if(!location || !reference){
+                return;
+            }
+
+            console.log(location);
+            console.log(reference);
+            var lat1 = location._latitude;
+            var long1 = location._longitude;
+            console.log(lat1);
+            console.log(long1);
+            return $rootScope.calcCrow(lat1, long1, reference.lat, reference.long);
+        };
+
         $scope.$on('$viewContentLoaded',
             function(){
                 $scope.getActivities();
-
+                $scope.loadLocation();
 
             });
 
