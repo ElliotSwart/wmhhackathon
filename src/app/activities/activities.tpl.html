@@ -23,7 +23,7 @@
                     <!--<img ng-src="http://graph.facebook.com/{{activity.attributes.creatingUser.attributes.facebookId}}/picture" width="32">-->
                 </div>
                 <div class="text small-9 columns">
-                    Hang out at a party with Elliot.
+                    Hang out at a party with Elliot.<br>
                     <a href="">Cancel</a>
 
 
@@ -38,15 +38,12 @@
     <h2>History</h2>
     <ul>
         <li>
-            <div class="activities-widget row collapse">
-                <div class="pic small-3 columns">
-                    <!--<img ng-src="http://graph.facebook.com/{{activity.attributes.creatingUser.attributes.facebookId}}/picture" width="32">-->
-                </div>
-                <div class="text small-9 columns">
+            <div class="border-widget activities-widget row collapse">
+                <div class="text small-12 columns">
                     Hang out at a party with Elliot.<br>
-                    <span class="secondary radius label">Regular Label</span><rating value="rate" max="5" on-leave="overStar = null" class="rating"></rating>
+                    <span class="secondary radius label">Mood After</span><rating value="rate" max="5" on-leave="overStar = null" class="rating"></rating>
                     <br>
-                    <span class="secondary radius label">Regular Label</span><rating value="rate" max="5" on-leave="overStar = null" class="rating"></rating>
+                    <span class="secondary radius label">Mood Before</span><rating value="rate" max="5" on-leave="overStar = null" class="rating"></rating>
 
                     <!--{{activity.attributes.creatingUser.attributes.name}} wants to
                     {{activity | actionFilter}}<br>
