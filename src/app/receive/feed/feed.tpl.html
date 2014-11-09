@@ -1,8 +1,22 @@
 <div class="feed">
-    <h2>Make a <span class="purple-accent">day...</span></h2>
+    <h2>See what's <span class="purple-accent">out there...</span></h2>
 
     <ul>
-        <li>
+        <li ng-repeat="activity in activities">
+            <div class="feed-widget row collapse">
+                <div class="pic small-3 columns">
+                    <img ng-src="http://graph.facebook.com/{{activity.attributes.creatingUser.attributes.facebookId}}/picture" width="32">
+                </div>
+                <div class="text small-9 columns">
+                    {{activity.attributes.creatingUser.attributes.name}} wants to
+                    {{activity.attributes.mode}} {{activity.attributes.type}}
+                </div>
+                <div class="text small-12 columns">
+                    Expiration date: {{ activity.attributes.expirationDate | date : format : timezone}}
+                </div>
+            </div>
+        </li>
+        <!--<li>
             <div class="feed-widget row collapse">
                 <div class="pic small-3 columns">
                     <i class="fa fa-user"></i>
@@ -21,10 +35,10 @@
                     Elliot is up for staying in to watch a movie.
                 </div>
             </div>
-        </li>
+        </li>-->
         <li></li>
         <li></li>
     </ul>
 
-    <a class="button tiny radius">OTHER OFFERS?</a>
+    <a class="button tiny radius">SEND REQUEST</a>
 </div>
