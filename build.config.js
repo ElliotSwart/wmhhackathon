@@ -77,6 +77,7 @@ module.exports = {
       'bower_components/angular-foundation/mm-foundation-tpls.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-resource/angular-resource.js',
+      'bower_components/angularjs-geolocation/src/geolocation.js',
       'bower_components/parse-js-sdk/lib/parse.js'
     ],
     css: [

@@ -41,6 +41,7 @@ Parse.Cloud.define("sendActivityMessage", function(request, response) {
     activityQuery.get(activityId, {
         success: function(activity) {
             console.log(activity);
+            /*
             userQuery.get(recieverId, {
                 success: function(recieverUser) {
                     userQuery.get(giverId, {
@@ -99,7 +100,7 @@ Parse.Cloud.define("sendActivityMessage", function(request, response) {
 
                                     }
                                 }
-                            );*/
+                            );
 
 
                             // The object was retrieved successfully.
@@ -119,7 +120,8 @@ Parse.Cloud.define("sendActivityMessage", function(request, response) {
                     // The object was not retrieved successfully.
                     // error is a Parse.Error with an error code and message.
                 }
-            });
+            });*/
+
             // The object was retrieved successfully.
         },
         error: function(object, error) {

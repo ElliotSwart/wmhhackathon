@@ -24,10 +24,85 @@ angular.module( 'app.settings', [
             );
         };
 
+        $scope.createCircle = function(){
+            var Circle = Parse.Object.extend("Circle");
+            var circle = new Circle();
+            circle.set("user",Parse.User.current());
+            circle.set("name","circleName");
+            // circle.set("owner",?)
+            circle.save(null, {
+                success: function(circle) {
+                    //Execute things here
+                    alert("New object created with objectID: " + circle.id);
+                },
+                error: function(circle, error) {
+                    //Execute things here
+                    alert('Failed to create new object, with error code: ' + error.message);
+                }
+            });
+        };
+
+        $scope.addFriendToCircle = function(circle){
+            /*
+            circle.remove("friends",Parse.User.current());
+
+            circle.save(null, {
+                success: function(circle) {
+                    //Execute things here
+                    alert("New object created with objectID: " + circle.id);
+                },
+                error: function(circle, error) {
+                    //Execute things here
+                    alert('Failed to create new object, with error code: ' + error.message);
+                }
+            });
+            */
+            circle.addUnique('friends', Parse.User.current());
+            circle.save(null, {
+                success: function(circle) {
+                    //Execute things here
+                    alert("New object created with objectID: " + circle.id);
+                },
+                error: function(circle, error) {
+                    //Execute things here
+                    alert('Failed to create new object, with error code: ' + error.message);
+                }
+            });
+        };
+
+        $scope.getCircleFriends = function(circle){
+            var Circle = Parse.Object.extend("Circle");
+            var query = new Parse.Query(Circle);
+            query.equalTo("user", Parse.User.current());
+            query.find({
+                success: function(circles) {
+                    console.log(circles);
+                    $scope.circles = circles;
+                    $scope.$digest();
+                    // comments now contains the comments for myPost
+                }
+            });
+        };
+
+        $scope.getCircles = function(){
+            var Circle = Parse.Object.extend("Circle");
+            var query = new Parse.Query(Circle);
+            query.include("friends");
+            query.equalTo("user", Parse.User.current());
+            query.find({
+                success: function(circles) {
+                    console.log(circles);
+                    $scope.circles = circles;
+                    $scope.$digest();
+                    // comments now contains the comments for myPost
+                }
+            });
+        };
+
         $scope.$on('$viewContentLoaded',
             function(){
                 FB.getLoginStatus(function(response){
-                    $scope.getFriends();
+                    $scope.getCircles();
                 });
 
             });

@@ -23,7 +23,7 @@ var createCircle = function(circleName) {
 }
 
 var addFriends = function(circle, userName) {
-	circle.addUnique("friends",userName);
+    circle.addUnique("friends",userName);
 	circle.save();
 }
 
@@ -49,6 +49,8 @@ var createActivity = function(activityName, activityCircle, startTime, endTime) 
 	activity.set("circle",activityCircle);
 	activity.set("startTime", startTime);
 	activity.set("endTime", endTime);
+	activity.set("do", true);
+	activity.set("stayIn", true);
 	activity.save(null, {
 		success: function(activity) {
 			//Execute things here
@@ -59,19 +61,55 @@ var createActivity = function(activityName, activityCircle, startTime, endTime) 
 			alert('Failed to create new object, with error code: ' + error.message);
 		}
 	});
-}
+};
 
-var viewActivities = function(userName) {
-	var query = new ParseQuery(Activity);
+var viewActivities = function() {
+	var currentUser = Parse.User.current();
+
+	var circlesIn = currentUser.get("circlesIn"); //grabs the user's circles
+	var availActivities = circlesIn.get("activities"); //grabs the activities in the circle
+
+	var query = new Parse.Query(availActivities);
 
 	// Figure out what the time is
-	var currentTime = //?;
+	var currentTime; //= ?;
 	query.lessThan("endTime", currentTime)
 
+}
 
 
-	// get the list of circles the user belongs to
-	// for each of those circles, check to see which activities are available
+var viewDoActivities = function() {
 
+	var activities = viewActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("do", true);
+
+}
+
+var viewTalkActivities = function() {
+
+	var activities = viewActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("do", false);
+
+}
+
+var viewStayInActivities = function() {
+
+	var activities = viewDoActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("stayIn", true);
+
+}
+
+var viewGoOutActivities = function() {
+
+	var activities = viewDoActivities();
+
+	var query = new Parse.Query(activities);
+	query.equalTo("stayIn", false);
 
 }
