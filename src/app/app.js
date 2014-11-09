@@ -42,15 +42,19 @@ angular.module( 'app', [
             return ($state.current.name == 'login');
         };
 
-        $rootScope.logout = function(logout){
+        $scope.logout = function(logout){
             if(logout){
-                Parse.User.logout();
+                Parse.User.logOut();
             }
-
             $state.go('login');
         };
 
+        $scope.isLogin = function(state){
+           console.log(state);
+           return (state.current.name == 'login');
+        };
+
         if(!$rootScope.loggedIn){
-            $rootScope.logout();
+            $scope.logout();
         }
 }]);
