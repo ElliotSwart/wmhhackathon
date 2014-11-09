@@ -12,7 +12,7 @@ angular.module( 'app.settings', [
     });
 })
 .controller( 'SettingsCtrl', ['$scope', '$state', function SettingsCtrl( $scope, $state) {
-
+/*
         $scope.getFriends = function(){
             FB.api(
                 "/me/friends",
@@ -100,12 +100,11 @@ angular.module( 'app.settings', [
                 }
             });
         };
-
+*/
         $scope.$on('$viewContentLoaded',
             function(){
                 if($state.current.name == "settings"){
                     $state.go('settings.main');
                 }
-
             });
 }]);

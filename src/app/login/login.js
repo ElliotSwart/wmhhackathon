@@ -39,8 +39,10 @@ angular.module( 'app.login', [
         };
 
         $scope.initializeUser = function(response){
-            user.set("name", response.firstName);
+            var user = Parse.User.current();
+            user.set("name", response.first_name);
             user.set("facebookId", response.id);
+            user.save();
         };
 
         $scope.loggedIn = function(){

@@ -1,8 +1,8 @@
 <div class="group">
-    <h2>Group Name</h2>
+    <h2>{{group.attributes.name}}</h2>
     <div class="row collapse">
         <div class="small-10 columns">
-            <input type="text" ng-model="customSelected" placeholder="Add A Friend" typeahead="friend as friend.name for friend in statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="settings/group/friendtemplate.tpl.html" class="form-control">
+            <input type="text" ng-model="customSelected" placeholder="Add A Friend" typeahead="friend as friend.name for friend in availableFriends | filter:{name:$viewValue}" typeahead-template-url="settings/group/friendtemplate.tpl.html" class="form-control friend-picker">
         </div>
         <div class="small-2 columns">
             <a href="#" class="button postfix">Add</a>
@@ -10,9 +10,9 @@
     </div>
      </div>
 
-    <div class="friend row collapse">
+    <div class="friend row collapse" ng-repeat="friend in group.attributes.friends">
         <div class="small-3 column"><img class="img-responsive" src=""></div>
-        <div class="small-5 column">Elliot Swart</div>
+        <div class="small-5 column">{{friend.attributes.name}}</div>
         <div class="small-4 column"><button class="button tiny">Remove</button></div>
     </div>
 </div>

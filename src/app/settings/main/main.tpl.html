@@ -1,10 +1,11 @@
 <div class="main">
+    <p>Enter your phone number and create a group of friends to support and be supported by</p>
     <div class="row collapse">
         <div class="small-10 columns">
-            <input type="tel" placeholder="Phone Number">
+            <input type="tel" placeholder="Phone Number" ng-model="phoneNumber">
         </div>
         <div class="small-2 columns">
-            <a href="#" class="button postfix">Save</a>
+            <a class="button postfix" ng-click="savePhone()">Save</a>
         </div>
     </div>
     <!--
@@ -18,21 +19,22 @@
 -->
     <div class="row collapse">
         <div class="small-10 columns">
-            <input type="text" placeholder="Group Name">
+            <input type="text" placeholder="Group Name" ng-model="groupName">
         </div>
         <div class="small-2 columns">
-            <a href="#" class="button postfix">Add</a>
+            <a class="button postfix" ng-click="createGroup()">Add</a>
         </div>
     </div>
 
-    <div class="group-display" ui-sref="^.group">
-        Yale Friends
+    <div class="group-display" ng-repeat="group in groups" ng-click="editGroup(group)">
+        {{group.attributes.name}}
     </div>
+    <!--
     <div class="group-display">
         Boston Friends
     </div>
-    <div ng-repeat="circle in circles" ng-click="addFriendToCircle(circle)" class="group-display">
+    <div  ng-click="addFriendToCircle(circle)" class="group-display">
         {{circle.attributes.name}}
         <div ng-repeat="friend in circle.attributes.friends"><img ng-src="http://graph.facebook.com/{{friend.id}}/picture"/>{{friend.attributes.name}}</div>
-    </div>
+    </div>-->
 </div>

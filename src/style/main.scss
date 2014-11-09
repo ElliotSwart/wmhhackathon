@@ -12,16 +12,23 @@
 }
 
 .page-content{
-  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100% - 45px);
   padding-left: 20px;
   padding-right: 20px;
-  margin: auto;
-  max-width: 800px;
+ // margin: auto;
+  //max-width: 800px;
   padding-top: 20px;
 
   @media #{$small-only} {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  @media(min-width: 800px){
+    padding-left: calc(50% - 400px);
+    padding-right: calc(50% - 400px);
   }
 }
 
