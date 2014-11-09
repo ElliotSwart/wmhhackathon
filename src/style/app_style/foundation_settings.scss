@@ -432,7 +432,7 @@ $font-weight-bold: 600 !default;
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
- $button-font-color: purple;
+ $button-font-color: $white;
 // $button-font-color-alt: $oil;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
@@ -447,7 +447,7 @@ $font-weight-bold: 600 !default;
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
- $button-bg-color: $white;
+ $button-bg-color: rgba(206,199,236,1);
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -1071,13 +1071,13 @@ $font-weight-bold: 600 !default;
 // $range-slider-handle-width: rem-calc(32);
 // $range-slider-handle-height: rem-calc(22);
 // $range-slider-handle-position-top: rem-calc(-5);
-// $range-slider-handle-bg-color: $primary-color;
+ $range-slider-handle-bg-color: rgba(206,199,236,1);
 // $range-slider-handle-border-width: 1px;
 // $range-slider-handle-border-style: solid;
 // $range-slider-handle-border-color: none;
 // $range-slider-handle-radius: $global-radius;
 // $range-slider-handle-round: $global-rounded;
-// $range-slider-handle-bg-hover-color: scale-color($primary-color, $lightness: -12%);
+ $range-slider-handle-bg-hover-color: scale-color(rgba(206,199,236,1), $lightness: -12%);
 // $range-slider-handle-cursor: pointer;
 
 // 25. Reveal

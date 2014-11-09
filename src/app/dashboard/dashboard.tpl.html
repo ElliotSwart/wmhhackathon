@@ -1,8 +1,19 @@
 <div class="dashboard">
+    <h2>How are you <span class="purple-accent">feeling</span>?</h2>
+    <div class="range-slider" data-slider data-options="start: 1; end: 10;">
+        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+        <span class="range-slider-active-segment"></span>
+        <input type="hidden">
+    </div>
+
+    <br>
+    <br>
+
+    <h2>What would you <span class="purple-accent">like</span>?</h2>
     <header>
-        <h1>What would you like?</h1>
+        <h1></h1>
         <a ui-sref="give" class="button tiny radius">GIVE</a>
         <a ui-sref="receive" class="button tiny radius">RECEIVE</a>
     </header>
-    <a ui-sref="settings">Manage Circles</a>
+
 </div>
