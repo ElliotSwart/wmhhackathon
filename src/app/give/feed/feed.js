@@ -13,7 +13,7 @@ angular.module( 'app.give.feed', [
         templateUrl:'give/feed/feed.tpl.html'
     });
 })
-.controller( 'GiveFeedCtrl', ['$scope', 'geolocation', function GiveCtrl( $scope, geolocation) {
+.controller( 'GiveFeedCtrl', ['$scope', '$state', 'geolocation', function GiveCtrl( $scope, $state, geolocation) {
 
         $scope.getActivities = function(){
 
@@ -58,6 +58,15 @@ angular.module( 'app.give.feed', [
              // Figure out what the time is
              var currentTime; //= ?;
              query.lessThan("endTime", currentTime)*/
+        };
+
+        $scope.acceptActivity = function(activity){
+            activity.set("acceptingUser", Parse.User.current());
+          //  activity.set("completed", true);
+            activity.set("receiverBefore", $rootScope.happiness);
+            activity.save(null, {success:function(){
+                $state.go('activities');
+            }});
         };
 
         $scope.$on('$viewContentLoaded',

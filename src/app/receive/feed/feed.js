@@ -13,7 +13,7 @@ angular.module( 'app.receive.feed', [
         templateUrl:'receive/feed/feed.tpl.html'
     });
 })
-.controller( 'ReceiveFeedCtrl', ['$scope', '$state', '$stateParams', 'geolocation', function GiveCtrl( $scope, $state, $stateParams, geolocation) {
+.controller( 'ReceiveFeedCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'geolocation', function GiveCtrl( $scope, $rootScope, $state, $stateParams, geolocation) {
 
         $scope.getActivities = function(){
 
@@ -63,6 +63,22 @@ angular.module( 'app.receive.feed', [
             // Figure out what the time is
             var currentTime; //= ?;
             query.lessThan("endTime", currentTime)*/
+        };
+
+        $scope.acceptActivity = function(activity){
+            activity.set("acceptingUser", Parse.User.current());
+            //activity.set("completed", true);
+            activity.set("receiverHappinessBefore", $rootScope.happiness);
+            activity.save(null, {success:function(){
+                console.log(activity);
+                Parse.Cloud.run('sendActivityMessage', {activityId:activity.id}, {
+                    success: function(result) {
+                    },
+                    error: function(error) {
+                    }
+                });
+               // $state.go('activities');
+            }});
         };
 
         $scope.$on('$viewContentLoaded',
