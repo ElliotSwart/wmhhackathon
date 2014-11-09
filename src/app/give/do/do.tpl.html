@@ -13,6 +13,10 @@
             <select ng-model="actionExample" ng-options="value for value in actionExamples">
             </select>
         </div>
+
+        <div class="large-12 columns" ng-show="isOther(actionExample)">
+            <input type="text" ng-model="actionOther" placeholder="Baking cookies..." />
+        </div>
     </div>
 
     <div class="row">

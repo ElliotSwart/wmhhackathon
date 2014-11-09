@@ -39,6 +39,7 @@ angular.module( 'app', [
 })
 .controller( 'AppCtrl', ['$scope', '$rootScope', '$state', function AppCtrl( $scope, $rootScope, $state) {
         $scope.$state = $state;
+        $rootScope.happiness = 3;
 
         $scope.isHome = function($state){
             return ($state.current.name == 'login');

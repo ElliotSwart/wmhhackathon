@@ -11,5 +11,9 @@ angular.module( 'app.dashboard', [
 })
 .controller( 'DashboardCtrl', ['$scope', '$rootScope', function DashboardCtrl( $scope, $rootScope) {
 
+        $scope.happiness = 3;
 
+        $scope.$watch('happiness', function(){
+            $rootScope.happiness = $scope.happiness;
+        });
 }]);

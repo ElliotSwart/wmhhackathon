@@ -10,7 +10,7 @@ angular.module( 'app.give.do', [
         templateUrl:'give/do/do.tpl.html'
     });
 })
-.controller( 'GiveDoCtrl', ['$scope', 'geolocation', function DoCtrl( $scope, geolocation) {
+.controller( 'GiveDoCtrl', ['$scope', '$rootScope', '$state', 'geolocation', function DoCtrl( $scope, $rootScope, $state, geolocation) {
 
     var hangoutExamples = ["In a bar", "On a hike", "At a party", "Other"];
     var stayInExamples = ["To watch a movie", "To play a game", "To make a meal", "Other"];
@@ -35,6 +35,10 @@ angular.module( 'app.give.do', [
 
      $scope.myWindow = 60;
 
+     $scope.isOther = function() {
+         return ($scope.actionExample == "Other");
+     };
+
     $scope.create = function() {
         geolocation.getLocation().then(function(data){
             var Activity = Parse.Object.extend("Activity");
@@ -47,6 +51,7 @@ angular.module( 'app.give.do', [
             activity.set("location", point);
 
             var type = "";
+            var activityName = "";
             if ($scope.myAction == "Staying In") {
                 type="in";
             }else{
@@ -55,20 +60,26 @@ angular.module( 'app.give.do', [
 
             activity.set("requested",false);
             activity.set("type",type);
-            activity.set("description",$scope.actionExample);
+            if ($scope.actionExample == "Other") {
+                activityName = $scope.actionOther;
+            }
+            else {
+                activityName = $scope.actionExample;
+            }
+            activity.set("mode", "do");
+            activity.set("completed", "false");
+            activity.set("description",activityName);
             activity.set("group",$scope.myGroup);
             activity.set("duration", Number($scope.myWindow));
             activity.set("creatingUser", Parse.User.current());
 
+            activity.set("receiverHappinessBefore", $rootScope.happiness);
 
             activity.save(null, {
                 success: function(activity) {
-                    //Execute things here
-                    alert("New object created with objectID: " + activity.id);
+                    $state.go("activities");
                 },
                 error: function(circle, error) {
-                    //Execute things here
-                    alert('Failed to create new object, with error code: ' + error.message);
                 }
             });
         });
