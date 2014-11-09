@@ -1,35 +1,12 @@
 <div class="activities">
     <h2>Pending Activities</h2>
     <ul>
-        <li>
+        <li ng-repeat="activity in pendingActivities">
             <div class="activities-widget row collapse">
-                <div class="pic small-3 columns">
-                    <!--<img ng-src="http://graph.facebook.com/{{activity.attributes.creatingUser.attributes.facebookId}}/picture" width="32">-->
-                </div>
-                <div class="text small-9 columns">
-                    Hang out at a party with Elliot.
-                    <a href="">Cancel</a>
-
-
-                    <!--{{activity.attributes.creatingUser.attributes.name}} wants to
-                    {{activity | actionFilter}}<br>
-                    This offer's good through <strong>{{ activity.attributes.expirationDate | date : 'h:s a'}}</strong>.-->
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="activities-widget row collapse">
-                <div class="pic small-3 columns">
-                    <!--<img ng-src="http://graph.facebook.com/{{activity.attributes.creatingUser.attributes.facebookId}}/picture" width="32">-->
-                </div>
-                <div class="text small-9 columns">
-                    Hang out at a party with Elliot.<br>
-                    <a href="">Cancel</a>
-
-
-                    <!--{{activity.attributes.creatingUser.attributes.name}} wants to
-                    {{activity | actionFilter}}<br>
-                    This offer's good through <strong>{{ activity.attributes.expirationDate | date : 'h:s a'}}</strong>.-->
+                <div class="pic small-12 columns">
+                    Pending request to {{activity | actionFilter}}
+                    <br>
+                    <a ng-click="removeActivity(activity)">Cancel?</a>
                 </div>
             </div>
         </li>

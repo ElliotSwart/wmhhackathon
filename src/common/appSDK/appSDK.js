@@ -22,7 +22,10 @@ angular.module( 'appSDK',[])
             else {
                 userProposition += "hang out";
             }
-            userProposition+= " " + activity.attributes.description.toLowerCase();
+
+           if (activity.attributes.hasOwnProperty('description')) {
+                userProposition+= " " + activity.attributes.description.toLowerCase();
+            }
         }
         return userProposition + ".";
     };
