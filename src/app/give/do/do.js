@@ -13,8 +13,11 @@ angular.module( 'app.give.do', [
 
      $scope.myAction = "Hang Out";
 
+     $scope.myCircle = "Friends";
+
      console.log("hi");
-     $scope.shouldBeShown = function() {
-         return ($scope.myAction == "Other");
+     $scope.shouldBeShown = function(myAction) {
+         console.log(myAction);
+         return (myAction == "Other");
      };
 }]);

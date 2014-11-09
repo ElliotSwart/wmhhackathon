@@ -11,6 +11,7 @@ angular.module( 'app.give.talk', [
 })
 .controller( 'GiveTalkCtrl', ['$scope', function TalkCtrl( $scope) {
 
+    $scope.myTalk = "Casual";
 
-
+    $scope.myCircle = "Friends";
 }]);
