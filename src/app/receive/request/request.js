@@ -1,4 +1,4 @@
-angular.module( 'app.give.do', [
+angular.module( 'app.receive.request', [
     'ui.router',
     'appSDK',
     'geolocation'
@@ -38,12 +38,6 @@ angular.module( 'app.give.do', [
 
                 var point = new Parse.GeoPoint(data.coords.latitude, data.coords.longitude);
                 activity.set("location", point);
-
-                if($stateParams.type == "in"){
-                    activity.set("description","stay in");
-                }else{
-                    activity.set("description","hang out");
-                }
 
                 activity.save(null, {
                     success: function(activity) {

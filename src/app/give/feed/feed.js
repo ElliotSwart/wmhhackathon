@@ -13,7 +13,7 @@ angular.module( 'app.give.feed', [
         templateUrl:'give/feed/feed.tpl.html'
     });
 })
-.controller( 'GiveFeedCtrl', ['$scope', '$state', '$window', 'geolocation', function GiveCtrl( $scope, $state, $window, geolocation) {
+.controller( 'GiveFeedCtrl', ['$scope','$rootScope', '$state', '$window', 'geolocation', function GiveCtrl( $scope,$rootScope, $state, $window, geolocation) {
 
         $scope.getActivities = function(){
 
@@ -34,6 +34,7 @@ angular.module( 'app.give.feed', [
                     activityQuery.equalTo("completed", false);
                     var d = new Date();
                     activityQuery.greaterThan("expirationDate", d);
+                    activityQuery.include("creatingUser");
 
                     activityQuery.find({success: function(activities) {
                         console.log('activities');

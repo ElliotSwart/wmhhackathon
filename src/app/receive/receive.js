@@ -4,6 +4,7 @@ angular.module( 'app.receive', [
     'app.receive.talk',
     'app.receive.do',
     'app.receive.feed',
+    'app.receive.request',
     'appSDK'
 ])
 .config(function config( $stateProvider ) {
