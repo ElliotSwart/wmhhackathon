@@ -75,6 +75,7 @@ angular.module( 'app', [
             var R = 6371; // km
             var dLat = toRad(lat2-lat1);
             var dLon = toRad(lon2-lon1);
+
             lat1 = toRad(lat1);
             lat2 = toRad(lat2);
 
