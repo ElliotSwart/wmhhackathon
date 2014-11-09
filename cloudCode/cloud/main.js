@@ -39,7 +39,7 @@ Parse.Cloud.define("sendActivityMessage", function(request, response) {
                     activityName = "have a heart to heart"
                 }
             }else{
-                activityName = activity.get("description");
+                activityName = activity.get("description").toLowerCase();
             }
 
             console.log(activityName);

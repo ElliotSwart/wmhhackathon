@@ -78,7 +78,7 @@ angular.module( 'app.give.do', [
 
             activity.set("creatingUser", Parse.User.current());
 
-            activity.set("receiverHappinessBefore", $rootScope.happiness);
+            activity.set("giverHappinessBefore", $rootScope.happiness);
 
             activity.save(null, {
                 success: function(activity) {

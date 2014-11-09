@@ -1,0 +1,26 @@
+<div class="request">
+    <h1>Request</h1>
+
+    <div class="row">
+        <h2>send to <span class="purple-accent">my...</span></h2>
+
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myGroup" ng-options="value.attributes.name for value in groups">
+            </select>
+        </div>
+
+        <h2>and I'm free <span class="purple-accent">for...</span></h2>
+
+        <div class="large-12 columns">
+            <select class="radius" ng-model="myWindow">
+                <option value=60>1 hour</option>
+                <option value=120>2 hours</option>
+                <option value=180>3 hours</option>
+                <option value=240>4 hours</option>
+                <option value=480>All day</option>
+            </select>
+        </div>
+    </div>
+
+    <a class="button tiny radius" ng-click="create()">SUBMIT</a>
+</div>

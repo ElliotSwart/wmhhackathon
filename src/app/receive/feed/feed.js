@@ -83,6 +83,10 @@ angular.module( 'app.receive.feed', [
             }
         };
 
+        $scope.request = function(){
+            $state.go('receive.request', {mode: $stateParams.mode, type: $stateParams.type});
+        };
+
         $scope.$on('$viewContentLoaded',
             function(){
                 $scope.getActivities();
