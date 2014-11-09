@@ -25,10 +25,24 @@ angular.module( 'app.receive.feed', [
                 success: function(groups) {
                     console.log(groups);
                     $scope.groups = groups;
-                    $scope.$digest();
+
+                    var Activity = Parse.Object.extend("Activity");
+                    var activityQuery = new Parse.Query(Activity);
+
+                    activityQuery.containedIn("group",
+                        groups);
+                    activityQuery.find({success: function(activities) {
+                        console.log('activities');
+                        console.log(activities);
+                        $scope.activities = activities;
+                        $scope.$digest();
+                    }});
+                },
+                error: function(error1, error2){
+                   console.log(error1);
+                   console.log(error2);
                 }
             });
-
             /*
 
             var user = Parse.User.current();
@@ -41,5 +55,10 @@ angular.module( 'app.receive.feed', [
             var currentTime; //= ?;
             query.lessThan("endTime", currentTime)*/
         };
+
+        $scope.$on('$viewContentLoaded',
+            function(){
+                $scope.getActivities();
+            });
 
 }]);
