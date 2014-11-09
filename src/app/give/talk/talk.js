@@ -14,4 +14,6 @@ angular.module( 'app.give.talk', [
     $scope.myTalk = "Casual";
 
     $scope.myCircle = "Friends";
+
+    $scope.myWindow = "1 hour";
 }]);
