@@ -4,7 +4,7 @@ angular.module( 'app.give.overview', [
 ])
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'give.overview', {
-        url: '/',
+        url: '/offer',
         controller: 'GiveOverviewCtrl',
         templateUrl:'give/overview/overview.tpl.html'
     });

@@ -8,7 +8,7 @@ angular.module( 'app.give.feed', [
 ])
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'give.feed', {
-        url: '/feed',
+        url: '/',
         controller: 'GiveFeedCtrl',
         templateUrl:'give/feed/feed.tpl.html'
     });

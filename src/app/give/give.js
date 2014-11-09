@@ -19,7 +19,7 @@ angular.module( 'app.give', [
     $scope.$on('$viewContentLoaded',
         function(){
             if ($state.current.name == 'give') {
-                $state.go('give.overview');
+                $state.go('give.feed');
             }
         });
 }]);
