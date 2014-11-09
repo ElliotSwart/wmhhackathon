@@ -33,8 +33,6 @@ angular.module( 'app.receive.do', [
 
     $scope.myCircle = "Friends";
 
-    $scope.myWindow = "1 hour";
-
     $scope.create = function() {
         createActivity($scope.myAction, "dfssdfs", 2);
     };

@@ -10,7 +10,10 @@
                 <div class="text small-9 columns">
                     {{activity.attributes.creatingUser.attributes.name}} wants to
                     {{activity | actionFilter}}<br>
-                    This offer's good through <strong>{{ activity.attributes.expirationDate | date : 'h:s a'}}</strong>.
+                    This option's good through <strong>{{ activity.attributes.expirationDate | date : 'h:s a'}}</strong>.<br>
+                    <span class="mileage">
+                         <strong>Mileage:</strong>
+                    </span>
                 </div>
             </div>
         </li>

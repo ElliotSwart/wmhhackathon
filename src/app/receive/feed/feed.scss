@@ -25,6 +25,10 @@
       padding-top: 10px;
       padding-bottom: 10px;
 
+      &:hover {
+        cursor: pointer;
+      }
+
       img {
         margin-right: auto;
         margin-left: auto;
@@ -35,7 +39,11 @@
       }
 
       .text {
-        font-size: 14px;
+        font-size: 12px;
+
+        @media only screen and (min-width: 40.063em) {
+          font-size: 14px;
+        }
       }
     }
   }

@@ -12,6 +12,8 @@ angular.module( 'app.receive.request', [
 })
 .controller( 'RequestCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'geolocation', function DoCtrl( $scope, $rootScope, $state, $stateParams, geolocation) {
 
+    $scope.myWindow = 60;
+
     $scope.create = function() {
 
         var Activity = Parse.Object.extend("Activity");
