@@ -13,7 +13,7 @@ angular.module( 'app.give.feed', [
         templateUrl:'give/feed/feed.tpl.html'
     });
 })
-.controller( 'GiveFeedCtrl', ['$scope', '$state', 'geolocation', function GiveCtrl( $scope, $state, geolocation) {
+.controller( 'GiveFeedCtrl', ['$scope', '$state', '$window', 'geolocation', function GiveCtrl( $scope, $state, $window, geolocation) {
 
         $scope.getActivities = function(){
 
@@ -61,12 +61,21 @@ angular.module( 'app.give.feed', [
         };
 
         $scope.acceptActivity = function(activity){
-            activity.set("acceptingUser", Parse.User.current());
-          //  activity.set("completed", true);
-            activity.set("receiverBefore", $rootScope.happiness);
-            activity.save(null, {success:function(){
-                $state.go('activities');
-            }});
+            if ($window.confirm("Would you like to start this activity?") ) {
+                activity.set("acceptingUser", Parse.User.current());
+                activity.set("completed", true);
+                activity.set("giverHappinessBefore", $rootScope.happiness);
+                activity.save(null, {success: function () {
+                    console.log(activity);
+                    Parse.Cloud.run('sendActivityMessage', {activityId: activity.id}, {
+                        success: function (result) {
+                        },
+                        error: function (error) {
+                        }
+                    });
+                    $state.go('activities');
+                }});
+            }
         };
 
         $scope.$on('$viewContentLoaded',
