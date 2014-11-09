@@ -19,10 +19,7 @@
         <h2>with some of <span class="purple-accent">my...</span></h2>
 
         <div class="large-12 columns">
-            <select class="radius" ng-model="myCircle">
-                <option value="Friends">Friends</option>
-                <option value="School">School</option>
-                <option value="Other">Other</option>
+            <select class="radius" ng-model="myGroup" ng-options="value.attributes.name for value in groups">
             </select>
         </div>
 
@@ -30,11 +27,11 @@
 
         <div class="large-12 columns">
             <select class="radius" ng-model="myWindow">
-                <option value="1 hour">1 hour</option>
-                <option value="2 hours">2 hours</option>
-                <option value="3 hours">3 hours</option>
-                <option value="4 hours">4 hours</option>
-                <option value="All day">All day</option>
+                <option value=60>1 hour</option>
+                <option value=120>2 hours</option>
+                <option value=180>3 hours</option>
+                <option value=240>4 hours</option>
+                <option value=480>All day</option>
             </select>
         </div>
     </div>

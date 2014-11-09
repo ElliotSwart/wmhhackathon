@@ -33,15 +33,12 @@ angular.module( 'app.give.do', [
 
      $scope.myCircle = "Friends";
 
-     $scope.myWindow = "1 hour";
+     $scope.myWindow = 60;
 
     $scope.create = function() {
-        createActivity($scope.myAction, "dfssdfs", 2);
-    };
-
-
-    var createActivity = function(activityName, activityCircle, duration) {
         geolocation.getLocation().then(function(data){
+            var Activity = Parse.Object.extend("Activity");
+            var activity = new Activity();
             console.log(data);
             $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
             console.log($scope.coords);
@@ -49,11 +46,18 @@ angular.module( 'app.give.do', [
             var point = new Parse.GeoPoint(data.coords.latitude, data.coords.longitude);
             activity.set("location", point);
 
-            var Activity = Parse.Object.extend("Activity");
-            var activity = new Activity();
-            activity.set("name",activityName);
-            activity.set("circle",activityCircle);
-            activity.set("duration", duration);
+            var type = "";
+            if ($scope.myAction == "Staying In") {
+                type="in";
+            }else{
+                type="out";
+            }
+
+            activity.set("requested",false);
+            activity.set("type",type);
+            activity.set("description",$scope.actionExample);
+            activity.set("group",$scope.myGroup);
+            activity.set("duration", Number($scope.myWindow));
             activity.set("creatingUser", Parse.User.current());
 
 
@@ -69,4 +73,25 @@ angular.module( 'app.give.do', [
             });
         });
     };
+
+    $scope.getGroups = function(){
+        var Group = Parse.Object.extend("Group");
+        var query = new Parse.Query(Group);
+        query.include("friends");
+        query.equalTo("user", Parse.User.current());
+        query.find({
+            success: function(groups) {
+                console.log(groups);
+                $scope.groups = groups;
+                $scope.myGroup = groups[0];
+                $scope.$digest();
+                // comments now contains the comments for myPost
+            }
+        });
+    };
+
+    $scope.$on('$viewContentLoaded',
+        function(){
+            $scope.getGroups();
+        });
 }]);

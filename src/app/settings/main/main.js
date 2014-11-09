@@ -48,6 +48,8 @@ angular.module( 'app.settings.main', [
             });
         };
 
+
+
         $scope.savePhone = function(){
             var user = Parse.User.current();
             user.set("phone", $scope.phoneNumber);
