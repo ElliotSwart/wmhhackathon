@@ -85,4 +85,8 @@ angular.module( 'app.give.feed', [
             });
 
 
+        $scope.calculateDistance = function(location, reference){
+
+        }
+
     }]);
