@@ -1,10 +1,6 @@
 <div class="dashboard">
     <h2>How are you <span class="purple-accent">feeling</span>?</h2>
-    <div class="range-slider" data-slider data-options="start: 1; end: 10;">
-        <span class="range-slider-handle" role="slider" tabindex="0"></span>
-        <span class="range-slider-active-segment"></span>
-        <input type="hidden">
-    </div>
+    <rating value="rate" max="5" on-leave="overStar = null" class="rating"></rating>
 
     <br>
     <br>

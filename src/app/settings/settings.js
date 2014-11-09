@@ -11,7 +11,7 @@ angular.module( 'app.settings', [
         templateUrl:'settings/settings.tpl.html'
     });
 })
-.controller( 'SettingsCtrl', ['$scope', function SettingsCtrl( $scope) {
+.controller( 'SettingsCtrl', ['$scope', '$state', function SettingsCtrl( $scope, $state) {
 
         $scope.getFriends = function(){
             FB.api(
@@ -45,7 +45,7 @@ angular.module( 'app.settings', [
         };
 
         $scope.addFriendToCircle = function(circle){
-            /*
+
             circle.remove("friends",Parse.User.current());
 
             circle.save(null, {
@@ -58,7 +58,7 @@ angular.module( 'app.settings', [
                     alert('Failed to create new object, with error code: ' + error.message);
                 }
             });
-            */
+
             circle.addUnique('friends', Parse.User.current());
             circle.save(null, {
                 success: function(circle) {
@@ -103,9 +103,9 @@ angular.module( 'app.settings', [
 
         $scope.$on('$viewContentLoaded',
             function(){
-                FB.getLoginStatus(function(response){
-                    $scope.getCircles();
-                });
+                if($state.current.name == "settings"){
+                    $state.go('settings.main');
+                }
 
             });
 }]);

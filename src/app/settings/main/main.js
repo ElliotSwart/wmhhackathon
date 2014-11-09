@@ -5,10 +5,10 @@ angular.module( 'app.settings.main', [
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'settings.main', {
         url: '/',
-        controller: 'MainCtrl',
+        controller: 'SettingsMainCtrl',
         templateUrl:'settings/main/main.tpl.html'
     });
 })
-.controller( 'SettingsCtrl', ['$scope', function SettingsCtrl( $scope) {
+.controller( 'SettingsMainCtrl', ['$scope', function SettingsMainCtrl( $scope) {
 
 }]);

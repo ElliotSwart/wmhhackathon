@@ -1,6 +1,37 @@
 <div class="main">
-    <h1>Groups</h1>
-    <div ng-repeat="circle in circles" ng-click="addFriendToCircle(circle)">
+    <div class="row collapse">
+        <div class="small-10 columns">
+            <input type="tel" placeholder="Phone Number">
+        </div>
+        <div class="small-2 columns">
+            <a href="#" class="button postfix">Save</a>
+        </div>
+    </div>
+    <!--
+    <input type="tel" placeholder="" class="option-group">
+    <button class="button option-button">Save Number</button>
+    <div class="clearfix"/>-->
+    <h2>Groups</h2>
+    <!--
+    <input type="text" placeholder="Group Name" class="option-group">
+    <button class="button option-button">+ Add Group</button>
+-->
+    <div class="row collapse">
+        <div class="small-10 columns">
+            <input type="text" placeholder="Group Name">
+        </div>
+        <div class="small-2 columns">
+            <a href="#" class="button postfix">Add</a>
+        </div>
+    </div>
+
+    <div class="group-display" ui-sref="^.group">
+        Yale Friends
+    </div>
+    <div class="group-display">
+        Boston Friends
+    </div>
+    <div ng-repeat="circle in circles" ng-click="addFriendToCircle(circle)" class="group-display">
         {{circle.attributes.name}}
         <div ng-repeat="friend in circle.attributes.friends"><img ng-src="http://graph.facebook.com/{{friend.id}}/picture"/>{{friend.attributes.name}}</div>
     </div>

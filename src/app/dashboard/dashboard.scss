@@ -1,8 +1,10 @@
 .dashboard {
   height: 100%;
-  padding-right: 50px;
-  padding-left: 50px;
-  padding-top: 25px;
-  margin-right: auto;
-  margin-left: auto;
+
+  text-align: center;
+
+  .rating{
+    font-size: 30px;
+    margin: auto;
+  }
 }
