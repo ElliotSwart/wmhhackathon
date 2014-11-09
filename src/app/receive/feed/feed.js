@@ -31,10 +31,12 @@ angular.module( 'app.receive.feed', [
 
                     activityQuery.containedIn("group",
                         groups);
+                    activityQuery.include("creatingUser");
                     activityQuery.find({success: function(activities) {
                         console.log('activities');
                         console.log(activities);
                         $scope.activities = activities;
+                        console.log( $scope.activities);
                         $scope.$digest();
                     }});
                 },
