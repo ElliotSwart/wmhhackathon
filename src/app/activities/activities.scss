@@ -1,4 +1,32 @@
 .activities {
   height: 99%;
 
+  ul {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  li {
+    .activities-widget {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      img {
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+      }
+
+      .text {
+        font-size: 14px;
+
+        a {
+          color: rgba(206,199,236,1);
+        }
+      }
+    }
+  }
 }

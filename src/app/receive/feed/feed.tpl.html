@@ -9,10 +9,8 @@
                 </div>
                 <div class="text small-9 columns">
                     {{activity.attributes.creatingUser.attributes.name}} wants to
-                    {{activity | actionFilter}}
-                </div>
-                <div class="text small-12 columns">
-                    This offer's good through {{ activity.attributes.expirationDate | date : 'h:s a'}}.
+                    {{activity | actionFilter}}<br>
+                    This offer's good through <strong>{{ activity.attributes.expirationDate | date : 'h:s a'}}</strong>.
                 </div>
             </div>
         </li>
